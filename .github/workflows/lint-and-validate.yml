@@ -1,0 +1,54 @@
+name: "Terraform Lint & Validate"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    name: "Lint & Validate Modules"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.5.7"
+
+      - name: Check Formatting
+        id: fmt
+        run: terraform fmt -check -recursive
+
+      - name: Validate All Modules & Examples
+        run: |
+          set -e
+          for dir in modules/* examples/*; do
+            if [ -d "$dir" ]; then
+              echo "Checking $dir..."
+              (cd "$dir" && terraform init -backend=false && terraform validate)
+            fi
+          done
+
+  tflint:
+    name: "TFLint Static Analysis"
+    runs-on: ubuntu-latest
+    needs: validate
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4
+        with:
+          tflint_version: "latest"
+
+      - name: Run TFLint
+        run: |
+          tflint --init || true
+          tflint --recursive
