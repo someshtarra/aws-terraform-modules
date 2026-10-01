@@ -10,7 +10,7 @@ As cloud environments grow in complexity, managing infrastructure through manual
 
 To solve this, I built **`aws-terraform-modules`**—a production-grade, highly reusable collection of Infrastructure as Code (IaC) modules for AWS, engineered according to the AWS Well-Architected Framework and strict security benchmarks.
 
-🔗 **GitHub Repository:** https://github.com/YOUR_USERNAME/aws-terraform-modules
+🔗 **GitHub Repository:** https://github.com/someshtarra/aws-terraform-modules
 
 ---
 

@@ -15,7 +15,7 @@ We are committed to providing a welcoming, inclusive, and harassment-free enviro
 1. **Fork the repository** on GitHub.
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/aws-terraform-modules.git
+   git clone https://github.com/someshtarra/aws-terraform-modules.git
    cd aws-terraform-modules
    ```
 3. **Create a new feature branch**:
