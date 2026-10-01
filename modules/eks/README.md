@@ -18,7 +18,6 @@ module "eks" {
 
   cluster_name    = "prod-workloads"
   cluster_version = "1.30"
-  vpc_id          = "vpc-0123456789abcdef0"
   subnet_ids      = ["subnet-private-1a", "subnet-private-1b"]
 
   kms_key_arn = "arn:aws:kms:us-east-1:123456789012:key/abcd-1234-efgh"
@@ -68,7 +67,6 @@ module "eks" {
 | <a name="input_public_access_cidrs"></a> [public\_access\_cidrs](#input\_public\_access\_cidrs) | CIDR blocks for public API access | `list(string)` | `["0.0.0.0/0"]` | no |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | Subnet IDs for control plane & nodes | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Resource tags | `map(string)` | `{}` | no |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | n/a | yes |
 
 ## Outputs
 

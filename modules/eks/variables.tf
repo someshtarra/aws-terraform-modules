@@ -9,10 +9,6 @@ variable "cluster_version" {
   default     = "1.30"
 }
 
-variable "vpc_id" {
-  description = "VPC ID where the cluster and nodes will be deployed"
-  type        = string
-}
 
 variable "subnet_ids" {
   description = "A list of subnet IDs where the EKS cluster control plane and worker nodes should be placed"
